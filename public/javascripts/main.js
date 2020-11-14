@@ -2,8 +2,8 @@
     const submitBtn = document.querySelector('#submit'),
         name = document.querySelector('#name'),
         age = document.querySelector('#age'),
-	    email = document.querySelector('#email'),
-	    text = document.querySelector('#text'),
+	email = document.querySelector('#email'),
+	text = document.querySelector('#text'),
         message = document.querySelector('.msg');
 
     validateFields = () => {
@@ -20,11 +20,11 @@
         })
             .then(res => res.json())
             .then((res) => message.innerHTML = `<div class="message">${res.message} <a href="/log">Посмотреть</a></div>`)
-            .catch(() => message.innerHTML = "<div class='message'>Что-то пошло не так</div>");
+            .catch(() => message.innerHTML = "<div class='message'>Ошибка</div>");
     }
 	const submitHandler = () => {
 	    if (!validateFields()) {
-                message.innerHTML = "Заполните все поля";
+                message.innerHTML = "Не все поля заполнены";
                 return;
             }
 
